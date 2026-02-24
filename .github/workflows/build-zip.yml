@@ -15,3 +15,5 @@ jobs:
         uses: 10up/action-wordpress-plugin-build-zip@stable
         with:
           retention-days: 1
+        env:
+          SLUG: wp-recipe-maker
