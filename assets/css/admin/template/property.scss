@@ -1,0 +1,320 @@
+.wprm-template-property {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.wprm-template-property {
+    padding: 3px 0;
+
+    .wprm-template-property-header {
+        width: 100%;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 200;
+        margin-top: 30px;
+    }
+
+    &:first-child {
+        .wprm-template-property-header {
+            margin-top: 0;
+        }
+    }
+
+    .wprm-template-property-label {
+        font-weight: 500;
+        padding: 4px 0;
+    }
+
+    // Open dropdown menus to top to prevent scroll/overflow issues.
+    .Select-menu-outer {
+        position: absolute !important;
+        top: auto !important;
+        bottom: calc(100% - 1px) !important;
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+        border-top-left-radius: 5px !important;
+        border-top-right-radius: 5px !important;
+    }
+    
+    .is-open .Select-control {
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-right-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
+    }
+    
+    .wprm-template-property-value {
+        &.wprm-template-property-value-font {
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+            .wprm-template-property-input {
+                margin-top: 5px;
+            }
+        }
+        &.wprm-template-property-value-text {
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        &.wprm-template-property-value-align,
+        &.wprm-template-property-value-border,
+        &.wprm-template-property-value-float,
+        &.wprm-template-property-value-dropdown {
+            width: 100%;
+        }
+
+        &.wprm-template-property-value-icon {
+            a {
+                font-size: 0.9em;
+            }
+
+            .wprm-template-property-icon-select {
+                max-width: 16px;
+                max-height: 16px;
+            }
+
+            .wprm-template-property-icon-selected-container {
+                display: flex;
+
+                .wprm-template-property-icon-select {
+                    display: flex;
+                    margin-right: 5px;
+                }
+            }
+
+            .wprm-template-property-icon-select-container {
+                width: 100%;
+
+                .wprm-template-property-icon-select-container-icons {
+                    margin-top: 5px;
+                }
+                
+                .wprm-template-property-icon-select {
+                    display: inline-block;
+                    cursor: pointer;
+                    margin: 2px;
+                }
+            }
+        }
+
+        &.wprm-template-property-value-color {
+            .wprm-template-property-input {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            .wprm-template-property-input-color-variable-icon {
+                cursor: pointer;
+                line-height: 14px;
+
+                svg {
+                    height: 14px;
+                    width: 14px;
+                }
+            }
+        }
+
+        &.wprm-template-property-value-toggle {
+            .wprm-template-property-input {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &.wprm-template-property-value-font_size,
+        &.wprm-template-property-value-size {
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 60px;
+            }
+
+            .wprm-template-property-value-size-unit {
+                margin-left: 5px;
+                cursor: pointer;
+                color: #999;
+
+                &.wprm-template-property-value-size-unit-selected {
+                    color: #444;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &.wprm-template-property-value-percentage {
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 60px;
+            }
+
+            .wprm-template-property-number-suffix {
+                margin-left: 5px;
+            }
+        }
+
+        &.wprm-template-property-value-image_size {
+            width: 100%;
+
+            label {
+                font-size: 0.8em;
+                font-style: italic;
+                margin-bottom: 3px;
+            }
+
+            .Select-menu-outer {
+                position: relative;
+            }
+
+            .wprm-template-property-input-width-height {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                input {
+                    width: 40%;
+                    max-width: 75px;
+
+                    &:first-child {
+                        margin-right: 5px;
+                    }
+                    &:last-child {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Accordion styles for property grouping
+.wprm-template-property-accordion {
+    .wprm-template-property-accordion-section {
+        margin-bottom: 0;
+        overflow: visible; // Allow dropdowns to overflow sections
+
+        &:last-child {
+            .wprm-template-property-accordion-content {
+                border-bottom: none;
+            }
+        }
+
+        &.is-expanded {
+            border-left: 1px solid #888;
+            padding-left: 5px;
+            margin-left: -5px;
+
+            .wprm-template-property-accordion-header-text {
+                .wprm-template-property-header {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .wprm-template-property-accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 8px 0;
+        margin-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        user-select: none;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        .wprm-template-property-accordion-header-text {
+            flex: 1;
+            min-width: 0;
+
+            .wprm-template-property-header {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 1.11em;
+                font-weight: 200;
+                color: #333;
+                text-align: left;
+            }
+        }
+
+        .wprm-template-property-accordion-icon {
+            flex-shrink: 0;
+            margin-left: 8px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0.7;
+
+            .wprm-template-icon {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+
+        &:hover .wprm-template-property-accordion-icon {
+            opacity: 1;
+        }
+    }
+
+    .wprm-template-property-accordion-content {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+
+        &.expanded {
+            max-height: none; // Use none instead of large pixel value for instant display
+            opacity: 1;
+            // Allow overflow when expanded so dropdowns can extend beyond
+            overflow: visible;
+            padding-bottom: 10px;
+        }
+
+        &.collapsed {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            overflow: hidden; // Keep hidden when collapsed
+        }
+
+        // Inner wrapper for content
+        .wprm-template-property-accordion-content-inner {
+            // Ensure properties inside maintain their styling
+            .wprm-template-property {
+                position: relative; // Ensure dropdowns are positioned relative to property
+
+                &:first-child {
+                    padding-top: 4px;
+                }
+
+                // Ensure dropdown menus can overflow the accordion content
+                .Select-menu-outer {
+                    z-index: 1000; // Ensure dropdown appears above other content
+                }
+            }
+        }
+    }
+}
+
